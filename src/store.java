@@ -13,6 +13,7 @@ public class store {
     static double currentTotalSale = 0;
     static int counter = 0;
     static String receiptString = "";
+    static String customerName;
 //    static String yesNo = "";
 
     //Method for displaying store name and showing Menu Options
@@ -42,8 +43,16 @@ public class store {
     //method for quantity
 
     public static void askUserForItemName() {
+        if (counter==0){
+            System.out.println("Welcome, what is your name?");
+            input.nextLine();
+            customerName = input.nextLine();
+
+        }
         System.out.println("What is the name of the item would you like to buy?");
+        if(counter>0) {
         input.nextLine();
+        }
         itemName = input.nextLine();
         if (!itemName.equals(null)){
             askUserForItemQuantity();
@@ -52,7 +61,7 @@ public class store {
 
     public static void askUserForItemQuantity() {
         System.out.println("How many would you like to buy?");
-        itemQuantity = input.nextInt();
+        itemQuantity = input.nextDouble();
         askUserForPriceOfItem();
     }
 
@@ -79,7 +88,7 @@ public class store {
     //Method to get price
 
     public static void printReceiptForUser() {
-
+        System.out.println("Thank you " + customerName + " Your purchases are:");
         System.out.println(receiptString);
         System.out.println("Your total is: $" + currentTotalSale);
         userExitsMenu();
