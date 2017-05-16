@@ -1,3 +1,5 @@
+import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 /**
@@ -6,6 +8,7 @@ import java.util.Scanner;
 public class store {
 
     static Scanner input = new Scanner(System.in);
+    static LocalDateTime localDateTime = LocalDateTime.now();
 
     static String itemName;
     static double itemPrice;
@@ -91,6 +94,7 @@ public class store {
         System.out.println("Thank you " + customerName + " Your purchases are:");
         System.out.println(receiptString);
         System.out.println("Your total is: $" + currentTotalSale);
+        System.out.println(localDateTime);
         userExitsMenu();
     }
 
